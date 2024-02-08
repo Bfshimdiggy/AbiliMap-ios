@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92AE2EFE2B6DFF60002D4D70 /* AbiliMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2EFD2B6DFF60002D4D70 /* AbiliMapApp.swift */; };
+		92AE2F002B6DFF60002D4D70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2EFF2B6DFF60002D4D70 /* ContentView.swift */; };
+		92AE2F022B6DFF61002D4D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AE2F012B6DFF61002D4D70 /* Assets.xcassets */; };
+		92AE2F052B6DFF61002D4D70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AE2F042B6DFF61002D4D70 /* Preview Assets.xcassets */; };
+		92AE2F0F2B6DFF61002D4D70 /* AbiliMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */; };
+		92AE2F192B6DFF61002D4D70 /* AbiliMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */; };
+		92AE2F1B2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92AE2F0B2B6DFF61002D4D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92AE2EF22B6DFF5F002D4D70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92AE2EF92B6DFF5F002D4D70;
+			remoteInfo = AbiliMap;
+		};
+		92AE2F152B6DFF61002D4D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92AE2EF22B6DFF5F002D4D70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92AE2EF92B6DFF5F002D4D70;
+			remoteInfo = AbiliMap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbiliMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92AE2EFD2B6DFF60002D4D70 /* AbiliMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapApp.swift; sourceTree = "<group>"; };
+		92AE2EFF2B6DFF60002D4D70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		92AE2F012B6DFF61002D4D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92AE2F042B6DFF61002D4D70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92AE2F0A2B6DFF61002D4D70 /* AbiliMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapTests.swift; sourceTree = "<group>"; };
+		92AE2F142B6DFF61002D4D70 /* AbiliMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapUITests.swift; sourceTree = "<group>"; };
+		92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92AE2EF72B6DFF5F002D4D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AE2F072B6DFF61002D4D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AE2F112B6DFF61002D4D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92AE2EF12B6DFF5F002D4D70 = {
+			isa = PBXGroup;
+			children = (
+				92AE2EFC2B6DFF5F002D4D70 /* AbiliMap */,
+				92AE2F0D2B6DFF61002D4D70 /* AbiliMapTests */,
+				92AE2F172B6DFF61002D4D70 /* AbiliMapUITests */,
+				92AE2EFB2B6DFF5F002D4D70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92AE2EFB2B6DFF5F002D4D70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */,
+				92AE2F0A2B6DFF61002D4D70 /* AbiliMapTests.xctest */,
+				92AE2F142B6DFF61002D4D70 /* AbiliMapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92AE2EFC2B6DFF5F002D4D70 /* AbiliMap */ = {
+			isa = PBXGroup;
+			children = (
+				92AE2EFD2B6DFF60002D4D70 /* AbiliMapApp.swift */,
+				92AE2EFF2B6DFF60002D4D70 /* ContentView.swift */,
+				92AE2F012B6DFF61002D4D70 /* Assets.xcassets */,
+				92AE2F032B6DFF61002D4D70 /* Preview Content */,
+			);
+			path = AbiliMap;
+			sourceTree = "<group>";
+		};
+		92AE2F032B6DFF61002D4D70 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				92AE2F042B6DFF61002D4D70 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92AE2F0D2B6DFF61002D4D70 /* AbiliMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */,
+			);
+			path = AbiliMapTests;
+			sourceTree = "<group>";
+		};
+		92AE2F172B6DFF61002D4D70 /* AbiliMapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */,
+				92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */,
+			);
+			path = AbiliMapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92AE2EF92B6DFF5F002D4D70 /* AbiliMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92AE2F1E2B6DFF61002D4D70 /* Build configuration list for PBXNativeTarget "AbiliMap" */;
+			buildPhases = (
+				92AE2EF62B6DFF5F002D4D70 /* Sources */,
+				92AE2EF72B6DFF5F002D4D70 /* Frameworks */,
+				92AE2EF82B6DFF5F002D4D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AbiliMap;
+			productName = AbiliMap;
+			productReference = 92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92AE2F092B6DFF61002D4D70 /* AbiliMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92AE2F212B6DFF61002D4D70 /* Build configuration list for PBXNativeTarget "AbiliMapTests" */;
+			buildPhases = (
+				92AE2F062B6DFF61002D4D70 /* Sources */,
+				92AE2F072B6DFF61002D4D70 /* Frameworks */,
+				92AE2F082B6DFF61002D4D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92AE2F0C2B6DFF61002D4D70 /* PBXTargetDependency */,
+			);
+			name = AbiliMapTests;
+			productName = AbiliMapTests;
+			productReference = 92AE2F0A2B6DFF61002D4D70 /* AbiliMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92AE2F132B6DFF61002D4D70 /* AbiliMapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92AE2F242B6DFF61002D4D70 /* Build configuration list for PBXNativeTarget "AbiliMapUITests" */;
+			buildPhases = (
+				92AE2F102B6DFF61002D4D70 /* Sources */,
+				92AE2F112B6DFF61002D4D70 /* Frameworks */,
+				92AE2F122B6DFF61002D4D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92AE2F162B6DFF61002D4D70 /* PBXTargetDependency */,
+			);
+			name = AbiliMapUITests;
+			productName = AbiliMapUITests;
+			productReference = 92AE2F142B6DFF61002D4D70 /* AbiliMapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92AE2EF22B6DFF5F002D4D70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					92AE2EF92B6DFF5F002D4D70 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					92AE2F092B6DFF61002D4D70 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 92AE2EF92B6DFF5F002D4D70;
+					};
+					92AE2F132B6DFF61002D4D70 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 92AE2EF92B6DFF5F002D4D70;
+					};
+				};
+			};
+			buildConfigurationList = 92AE2EF52B6DFF5F002D4D70 /* Build configuration list for PBXProject "AbiliMap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92AE2EF12B6DFF5F002D4D70;
+			productRefGroup = 92AE2EFB2B6DFF5F002D4D70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92AE2EF92B6DFF5F002D4D70 /* AbiliMap */,
+				92AE2F092B6DFF61002D4D70 /* AbiliMapTests */,
+				92AE2F132B6DFF61002D4D70 /* AbiliMapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92AE2EF82B6DFF5F002D4D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AE2F052B6DFF61002D4D70 /* Preview Assets.xcassets in Resources */,
+				92AE2F022B6DFF61002D4D70 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AE2F082B6DFF61002D4D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AE2F122B6DFF61002D4D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92AE2EF62B6DFF5F002D4D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AE2F002B6DFF60002D4D70 /* ContentView.swift in Sources */,
+				92AE2EFE2B6DFF60002D4D70 /* AbiliMapApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AE2F062B6DFF61002D4D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AE2F0F2B6DFF61002D4D70 /* AbiliMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AE2F102B6DFF61002D4D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AE2F1B2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift in Sources */,
+				92AE2F192B6DFF61002D4D70 /* AbiliMapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92AE2F0C2B6DFF61002D4D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92AE2EF92B6DFF5F002D4D70 /* AbiliMap */;
+			targetProxy = 92AE2F0B2B6DFF61002D4D70 /* PBXContainerItemProxy */;
+		};
+		92AE2F162B6DFF61002D4D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92AE2EF92B6DFF5F002D4D70 /* AbiliMap */;
+			targetProxy = 92AE2F152B6DFF61002D4D70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		92AE2F1C2B6DFF61002D4D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92AE2F1D2B6DFF61002D4D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92AE2F1F2B6DFF61002D4D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AbiliMap/Preview Content\"";
+				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is needed to determine where the user is when submitting an issue so it can be resolved";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92AE2F202B6DFF61002D4D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AbiliMap/Preview Content\"";
+				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is needed to determine where the user is when submitting an issue so it can be resolved";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92AE2F222B6DFF61002D4D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbiliMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AbiliMap";
+			};
+			name = Debug;
+		};
+		92AE2F232B6DFF61002D4D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbiliMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AbiliMap";
+			};
+			name = Release;
+		};
+		92AE2F252B6DFF61002D4D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AbiliMap;
+			};
+			name = Debug;
+		};
+		92AE2F262B6DFF61002D4D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AbiliMap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92AE2EF52B6DFF5F002D4D70 /* Build configuration list for PBXProject "AbiliMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AE2F1C2B6DFF61002D4D70 /* Debug */,
+				92AE2F1D2B6DFF61002D4D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92AE2F1E2B6DFF61002D4D70 /* Build configuration list for PBXNativeTarget "AbiliMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AE2F1F2B6DFF61002D4D70 /* Debug */,
+				92AE2F202B6DFF61002D4D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92AE2F212B6DFF61002D4D70 /* Build configuration list for PBXNativeTarget "AbiliMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AE2F222B6DFF61002D4D70 /* Debug */,
+				92AE2F232B6DFF61002D4D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92AE2F242B6DFF61002D4D70 /* Build configuration list for PBXNativeTarget "AbiliMapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AE2F252B6DFF61002D4D70 /* Debug */,
+				92AE2F262B6DFF61002D4D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92AE2EF22B6DFF5F002D4D70 /* Project object */;
+}
