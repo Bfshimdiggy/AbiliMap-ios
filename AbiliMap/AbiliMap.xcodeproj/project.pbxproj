@@ -12,6 +12,7 @@
 		926C4B8B2C1793D800915A7F /* IssuePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8A2C1793D800915A7F /* IssuePopupView.swift */; };
 		926C4B8D2C17956E00915A7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8C2C17956E00915A7F /* ContentView.swift */; };
 		926C4B8F2C17958500915A7F /* AbiliMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8E2C17958500915A7F /* AbiliMapApp.swift */; };
+		927E54782C18E257001D4C47 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E54772C18E257001D4C47 /* LocationManager.swift */; };
 		92AE2F0F2B6DFF61002D4D70 /* AbiliMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */; };
 		92AE2F192B6DFF61002D4D70 /* AbiliMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */; };
 		92AE2F1B2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */; };
@@ -41,6 +42,7 @@
 		926C4B8A2C1793D800915A7F /* IssuePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePopupView.swift; sourceTree = "<group>"; };
 		926C4B8C2C17956E00915A7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		926C4B8E2C17958500915A7F /* AbiliMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapApp.swift; sourceTree = "<group>"; };
+		927E54772C18E257001D4C47 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbiliMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F0A2B6DFF61002D4D70 /* AbiliMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapTests.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				926C4B882C17939300915A7F /* AdminView.swift */,
 				926C4B8A2C1793D800915A7F /* IssuePopupView.swift */,
 				926C4B8C2C17956E00915A7F /* ContentView.swift */,
+				927E54772C18E257001D4C47 /* LocationManager.swift */,
 				926C4B8E2C17958500915A7F /* AbiliMapApp.swift */,
 				92AE2F032B6DFF61002D4D70 /* Preview Content */,
 			);
@@ -279,6 +282,7 @@
 			files = (
 				926C4B8F2C17958500915A7F /* AbiliMapApp.swift in Sources */,
 				926C4B892C17939300915A7F /* AdminView.swift in Sources */,
+				927E54782C18E257001D4C47 /* LocationManager.swift in Sources */,
 				926C4B8B2C1793D800915A7F /* IssuePopupView.swift in Sources */,
 				926C4B8D2C17956E00915A7F /* ContentView.swift in Sources */,
 			);

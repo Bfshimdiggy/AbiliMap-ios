@@ -1,6 +1,6 @@
 import SwiftUI
 import FirebaseFirestore
-
+import CoreLocation
 
 struct Issue: Identifiable, Codable {
     @DocumentID var id: String?
@@ -8,8 +8,9 @@ struct Issue: Identifiable, Codable {
     var location: GeoPoint
     var userId: String
     var status: String
-    var imageBase64: String
+
 }
+
 
 struct AdminView: View {
     @State private var issues: [Issue] = []
@@ -53,6 +54,8 @@ struct AdminView: View {
                 }
                 print("Documents fetched: \(documents.count)")
                 self.issues = documents.compactMap { document -> Issue? in
+                    // Print document data for debugging
+                    print("Document data: \(document.data())")
                     let result = Result { try document.data(as: Issue.self) }
                     switch result {
                     case .success(let issue):
