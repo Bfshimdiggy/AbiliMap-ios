@@ -1,14 +1,12 @@
-//
-//  AbiliMapApp.swift
-//  AbiliMap
-//
-//  Created by Baron Shimanovsky on 2/2/24.
-//
-
 import SwiftUI
+import Firebase
 
 @main
 struct AbiliMapApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

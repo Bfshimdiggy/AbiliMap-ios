@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92AE2EFE2B6DFF60002D4D70 /* AbiliMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2EFD2B6DFF60002D4D70 /* AbiliMapApp.swift */; };
-		92AE2F002B6DFF60002D4D70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2EFF2B6DFF60002D4D70 /* ContentView.swift */; };
-		92AE2F022B6DFF61002D4D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AE2F012B6DFF61002D4D70 /* Assets.xcassets */; };
-		92AE2F052B6DFF61002D4D70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AE2F042B6DFF61002D4D70 /* Preview Assets.xcassets */; };
+		92147A162B9D31BD00A342FA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 92147A152B9D31BD00A342FA /* FirebaseFirestore */; };
+		926C4B892C17939300915A7F /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B882C17939300915A7F /* AdminView.swift */; };
+		926C4B8B2C1793D800915A7F /* IssuePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8A2C1793D800915A7F /* IssuePopupView.swift */; };
+		926C4B8D2C17956E00915A7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8C2C17956E00915A7F /* ContentView.swift */; };
+		926C4B8F2C17958500915A7F /* AbiliMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8E2C17958500915A7F /* AbiliMapApp.swift */; };
 		92AE2F0F2B6DFF61002D4D70 /* AbiliMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */; };
 		92AE2F192B6DFF61002D4D70 /* AbiliMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */; };
 		92AE2F1B2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */; };
+		92E66E352B9D257A004C7306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E66E342B9D257A004C7306 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +36,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		926C4B872C17924A00915A7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		926C4B882C17939300915A7F /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		926C4B8A2C1793D800915A7F /* IssuePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePopupView.swift; sourceTree = "<group>"; };
+		926C4B8C2C17956E00915A7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		926C4B8E2C17958500915A7F /* AbiliMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapApp.swift; sourceTree = "<group>"; };
 		92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbiliMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		92AE2EFD2B6DFF60002D4D70 /* AbiliMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapApp.swift; sourceTree = "<group>"; };
-		92AE2EFF2B6DFF60002D4D70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		92AE2F012B6DFF61002D4D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		92AE2F042B6DFF61002D4D70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92AE2F0A2B6DFF61002D4D70 /* AbiliMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapTests.swift; sourceTree = "<group>"; };
 		92AE2F142B6DFF61002D4D70 /* AbiliMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapUITests.swift; sourceTree = "<group>"; };
 		92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		92E66E342B9D257A004C7306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92147A162B9D31BD00A342FA /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92147A142B9D31BD00A342FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92AE2EF12B6DFF5F002D4D70 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +90,7 @@
 				92AE2F0D2B6DFF61002D4D70 /* AbiliMapTests */,
 				92AE2F172B6DFF61002D4D70 /* AbiliMapUITests */,
 				92AE2EFB2B6DFF5F002D4D70 /* Products */,
+				92147A142B9D31BD00A342FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,9 +107,11 @@
 		92AE2EFC2B6DFF5F002D4D70 /* AbiliMap */ = {
 			isa = PBXGroup;
 			children = (
-				92AE2EFD2B6DFF60002D4D70 /* AbiliMapApp.swift */,
-				92AE2EFF2B6DFF60002D4D70 /* ContentView.swift */,
-				92AE2F012B6DFF61002D4D70 /* Assets.xcassets */,
+				92E66E342B9D257A004C7306 /* GoogleService-Info.plist */,
+				926C4B882C17939300915A7F /* AdminView.swift */,
+				926C4B8A2C1793D800915A7F /* IssuePopupView.swift */,
+				926C4B8C2C17956E00915A7F /* ContentView.swift */,
+				926C4B8E2C17958500915A7F /* AbiliMapApp.swift */,
 				92AE2F032B6DFF61002D4D70 /* Preview Content */,
 			);
 			path = AbiliMap;
@@ -105,7 +120,7 @@
 		92AE2F032B6DFF61002D4D70 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				92AE2F042B6DFF61002D4D70 /* Preview Assets.xcassets */,
+				926C4B872C17924A00915A7F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -143,6 +158,9 @@
 			dependencies = (
 			);
 			name = AbiliMap;
+			packageProductDependencies = (
+				92147A152B9D31BD00A342FA /* FirebaseFirestore */,
+			);
 			productName = AbiliMap;
 			productReference = 92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +233,9 @@
 				Base,
 			);
 			mainGroup = 92AE2EF12B6DFF5F002D4D70;
+			packageReferences = (
+				92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 92AE2EFB2B6DFF5F002D4D70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,8 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92AE2F052B6DFF61002D4D70 /* Preview Assets.xcassets in Resources */,
-				92AE2F022B6DFF61002D4D70 /* Assets.xcassets in Resources */,
+				92E66E352B9D257A004C7306 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92AE2F002B6DFF60002D4D70 /* ContentView.swift in Sources */,
-				92AE2EFE2B6DFF60002D4D70 /* AbiliMapApp.swift in Sources */,
+				926C4B8F2C17958500915A7F /* AbiliMapApp.swift in Sources */,
+				926C4B892C17939300915A7F /* AdminView.swift in Sources */,
+				926C4B8B2C1793D800915A7F /* IssuePopupView.swift in Sources */,
+				926C4B8D2C17956E00915A7F /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.22.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92147A152B9D31BD00A342FA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 92AE2EF22B6DFF5F002D4D70 /* Project object */;
 }
