@@ -8,15 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		92147A162B9D31BD00A342FA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 92147A152B9D31BD00A342FA /* FirebaseFirestore */; };
-		926C4B892C17939300915A7F /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B882C17939300915A7F /* AdminView.swift */; };
+		92235CF52CCD9ADC00B6769E /* SignInView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 92235CF42CCD9ADC00B6769E /* SignInView .swift */; };
+		92235CF72CCD9BD400B6769E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92235CF62CCD9BD400B6769E /* FirebaseAuth */; };
+		92235CF92CCD9BD400B6769E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 92235CF82CCD9BD400B6769E /* FirebaseFirestoreSwift */; };
+		923F2CCE2D275F8600889D07 /* ClerkSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 923F2CCD2D275F8600889D07 /* ClerkSDK */; };
+		923F2CD02D275FA100889D07 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F2CCF2D275FA000889D07 /* SignUpView.swift */; };
+		923F2CD22D27635300889D07 /* SignUpOrSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F2CD12D27635300889D07 /* SignUpOrSignInView.swift */; };
+		924E15892D2A4DE500B7E0B9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E15882D2A4DE500B7E0B9 /* UserSession.swift */; };
+		924E158D2D2A62B300B7E0B9 /* FirebaseAuthListener.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E158C2D2A62B300B7E0B9 /* FirebaseAuthListener.swift .swift */; };
+		926972E52D273D5F0068ED5F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926972E42D273D5F0068ED5F /* HomeView.swift */; };
 		926C4B8B2C1793D800915A7F /* IssuePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8A2C1793D800915A7F /* IssuePopupView.swift */; };
 		926C4B8D2C17956E00915A7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8C2C17956E00915A7F /* ContentView.swift */; };
 		926C4B8F2C17958500915A7F /* AbiliMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C4B8E2C17958500915A7F /* AbiliMapApp.swift */; };
+		927B99C62D2B37FC00873747 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927B99C52D2B37FC00873747 /* GoogleService-Info.plist */; };
 		927E54782C18E257001D4C47 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E54772C18E257001D4C47 /* LocationManager.swift */; };
+		927ED7E52CCF060F0009A2DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927ED7E42CCF060F0009A2DC /* SettingsView.swift */; };
 		92AE2F0F2B6DFF61002D4D70 /* AbiliMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */; };
 		92AE2F192B6DFF61002D4D70 /* AbiliMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */; };
 		92AE2F1B2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */; };
-		92E66E352B9D257A004C7306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E66E342B9D257A004C7306 /* GoogleService-Info.plist */; };
+		92B745F02D2B1E3A00700BC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B745EF2D2B1E3A00700BC7 /* Assets.xcassets */; };
+		92C6F84B2CAB4A3E00080232 /* UserIssuesView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6F84A2CAB4A3E00080232 /* UserIssuesView .swift */; };
+		92C6F84F2CAB4E2800080232 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6F84E2CAB4E2800080232 /* Issue.swift */; };
+		92FC0CFA2CF3F31400D44A7E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC0CF92CF3F31400D44A7E /* FirebaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,19 +50,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92235CF42CCD9ADC00B6769E /* SignInView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInView .swift"; sourceTree = "<group>"; };
+		923F2CCF2D275FA000889D07 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		923F2CD12D27635300889D07 /* SignUpOrSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrSignInView.swift; sourceTree = "<group>"; };
+		924E15882D2A4DE500B7E0B9 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		924E158C2D2A62B300B7E0B9 /* FirebaseAuthListener.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseAuthListener.swift .swift"; sourceTree = "<group>"; };
+		926972E42D273D5F0068ED5F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		926C4B872C17924A00915A7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		926C4B882C17939300915A7F /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 		926C4B8A2C1793D800915A7F /* IssuePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePopupView.swift; sourceTree = "<group>"; };
 		926C4B8C2C17956E00915A7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		926C4B8E2C17958500915A7F /* AbiliMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapApp.swift; sourceTree = "<group>"; };
+		927B99C52D2B37FC00873747 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		927E54772C18E257001D4C47 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		927ED7E42CCF060F0009A2DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbiliMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F0A2B6DFF61002D4D70 /* AbiliMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F0E2B6DFF61002D4D70 /* AbiliMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapTests.swift; sourceTree = "<group>"; };
 		92AE2F142B6DFF61002D4D70 /* AbiliMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbiliMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AE2F182B6DFF61002D4D70 /* AbiliMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapUITests.swift; sourceTree = "<group>"; };
 		92AE2F1A2B6DFF61002D4D70 /* AbiliMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbiliMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		92E66E342B9D257A004C7306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92B745EF2D2B1E3A00700BC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92C6F84A2CAB4A3E00080232 /* UserIssuesView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserIssuesView .swift"; sourceTree = "<group>"; };
+		92C6F84E2CAB4E2800080232 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		92FC0CF92CF3F31400D44A7E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +81,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				92147A162B9D31BD00A342FA /* FirebaseFirestore in Frameworks */,
+				92235CF72CCD9BD400B6769E /* FirebaseAuth in Frameworks */,
+				92235CF92CCD9BD400B6769E /* FirebaseFirestoreSwift in Frameworks */,
+				923F2CCE2D275F8600889D07 /* ClerkSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,12 +135,22 @@
 		92AE2EFC2B6DFF5F002D4D70 /* AbiliMap */ = {
 			isa = PBXGroup;
 			children = (
-				92E66E342B9D257A004C7306 /* GoogleService-Info.plist */,
-				926C4B882C17939300915A7F /* AdminView.swift */,
+				927B99C52D2B37FC00873747 /* GoogleService-Info.plist */,
+				923F2CD12D27635300889D07 /* SignUpOrSignInView.swift */,
+				92235CF42CCD9ADC00B6769E /* SignInView .swift */,
+				923F2CCF2D275FA000889D07 /* SignUpView.swift */,
+				92C6F84E2CAB4E2800080232 /* Issue.swift */,
 				926C4B8A2C1793D800915A7F /* IssuePopupView.swift */,
 				926C4B8C2C17956E00915A7F /* ContentView.swift */,
+				926972E42D273D5F0068ED5F /* HomeView.swift */,
+				92FC0CF92CF3F31400D44A7E /* FirebaseService.swift */,
+				927ED7E42CCF060F0009A2DC /* SettingsView.swift */,
+				92C6F84A2CAB4A3E00080232 /* UserIssuesView .swift */,
+				924E15882D2A4DE500B7E0B9 /* UserSession.swift */,
+				924E158C2D2A62B300B7E0B9 /* FirebaseAuthListener.swift .swift */,
 				927E54772C18E257001D4C47 /* LocationManager.swift */,
 				926C4B8E2C17958500915A7F /* AbiliMapApp.swift */,
+				92B745EF2D2B1E3A00700BC7 /* Assets.xcassets */,
 				92AE2F032B6DFF61002D4D70 /* Preview Content */,
 			);
 			path = AbiliMap;
@@ -163,6 +199,9 @@
 			name = AbiliMap;
 			packageProductDependencies = (
 				92147A152B9D31BD00A342FA /* FirebaseFirestore */,
+				92235CF62CCD9BD400B6769E /* FirebaseAuth */,
+				92235CF82CCD9BD400B6769E /* FirebaseFirestoreSwift */,
+				923F2CCD2D275F8600889D07 /* ClerkSDK */,
 			);
 			productName = AbiliMap;
 			productReference = 92AE2EFA2B6DFF5F002D4D70 /* AbiliMap.app */;
@@ -212,7 +251,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					92AE2EF92B6DFF5F002D4D70 = {
 						CreatedOnToolsVersion = 15.2;
@@ -238,6 +277,7 @@
 			mainGroup = 92AE2EF12B6DFF5F002D4D70;
 			packageReferences = (
 				92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				926972E62D27435C0068ED5F /* XCRemoteSwiftPackageReference "clerk-ios" */,
 			);
 			productRefGroup = 92AE2EFB2B6DFF5F002D4D70 /* Products */;
 			projectDirPath = "";
@@ -255,7 +295,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E66E352B9D257A004C7306 /* GoogleService-Info.plist in Resources */,
+				92B745F02D2B1E3A00700BC7 /* Assets.xcassets in Resources */,
+				927B99C62D2B37FC00873747 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +321,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				927ED7E52CCF060F0009A2DC /* SettingsView.swift in Sources */,
 				926C4B8F2C17958500915A7F /* AbiliMapApp.swift in Sources */,
-				926C4B892C17939300915A7F /* AdminView.swift in Sources */,
+				926972E52D273D5F0068ED5F /* HomeView.swift in Sources */,
+				92C6F84F2CAB4E2800080232 /* Issue.swift in Sources */,
+				924E158D2D2A62B300B7E0B9 /* FirebaseAuthListener.swift .swift in Sources */,
+				923F2CD02D275FA100889D07 /* SignUpView.swift in Sources */,
+				92FC0CFA2CF3F31400D44A7E /* FirebaseService.swift in Sources */,
+				92C6F84B2CAB4A3E00080232 /* UserIssuesView .swift in Sources */,
+				923F2CD22D27635300889D07 /* SignUpOrSignInView.swift in Sources */,
 				927E54782C18E257001D4C47 /* LocationManager.swift in Sources */,
 				926C4B8B2C1793D800915A7F /* IssuePopupView.swift in Sources */,
 				926C4B8D2C17956E00915A7F /* ContentView.swift in Sources */,
+				924E15892D2A4DE500B7E0B9 /* UserSession.swift in Sources */,
+				92235CF52CCD9ADC00B6769E /* SignInView .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,16 +495,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AbiliMap/Preview Content\"";
-				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				DEVELOPMENT_TEAM = 72PHTMM2A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is needed to determine where the user is when submitting an issue so it can be resolved";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,7 +514,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boonsapps.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -475,16 +527,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AbiliMap/Preview Content\"";
-				DEVELOPMENT_TEAM = Y6RPU2W6RK;
+				DEVELOPMENT_TEAM = 72PHTMM2A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is needed to determine where the user is when submitting an issue so it can be resolved";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,7 +546,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abilifoundation.AbiliMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boonsapps.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -503,7 +557,6 @@
 		92AE2F222B6DFF61002D4D70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -523,7 +576,6 @@
 		92AE2F232B6DFF61002D4D70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -543,7 +595,6 @@
 		92AE2F252B6DFF61002D4D70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y6RPU2W6RK;
@@ -561,7 +612,6 @@
 		92AE2F262B6DFF61002D4D70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y6RPU2W6RK;
@@ -618,6 +668,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		926972E62D27435C0068ED5F /* XCRemoteSwiftPackageReference "clerk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/clerk/clerk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.39.3;
+			};
+		};
 		92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -633,6 +691,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		92235CF62CCD9BD400B6769E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		92235CF82CCD9BD400B6769E /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E66E362B9D2630004C7306 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		923F2CCD2D275F8600889D07 /* ClerkSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 926972E62D27435C0068ED5F /* XCRemoteSwiftPackageReference "clerk-ios" */;
+			productName = ClerkSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
