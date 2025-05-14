@@ -11,123 +11,142 @@ struct IssuePopupView: View {
     @State private var email: String = ""
     @State private var isSubmitting: Bool = false
     @State private var errorMessage: String?
+    @State private var showSuccessAlert: Bool = false
     @EnvironmentObject var firebaseService: FirebaseService
     @EnvironmentObject var userSession: UserSession
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) var colorScheme
 
     var categories = ["Private Business", "City Property"]
 
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Submit an Issue")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .padding(.top)
+            ZStack {
+                Color(UIColor.systemBackground)
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    VStack {
+                        Text("Submit an Issue")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                            .padding(.top)
 
-                // Category Picker with adaptive gradient
-                Menu {
-                    ForEach(categories, id: \.self) { categoryOption in
-                        Button(action: {
-                            self.category = categoryOption
-                        }) {
-                            Text(categoryOption)
+                        // Category Picker with adaptive gradient
+                        Menu {
+                            ForEach(categories, id: \.self) { categoryOption in
+                                Button(action: {
+                                    self.category = categoryOption
+                                }) {
+                                    Text(categoryOption)
+                                }
+                            }
+                        } label: {
+                            Text(category)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    category == "Select type of site"
+                                        ? LinearGradient(gradient: Gradient(colors: [Color.gray, Color.gray.opacity(0.7)]), startPoint: .leading, endPoint: .trailing)
+                                        : LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing)
+                                )
+                                .cornerRadius(10)
+                                .shadow(radius: 2)
+                                .padding(.horizontal)
                         }
-                    }
-                } label: {
-                    Text(category)
-                        .font(.title2)
-                        .foregroundColor(.primary)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            category == "Select type of site"
-                                ? LinearGradient(gradient: Gradient(colors: [.gray, .gray]), startPoint: .leading, endPoint: .trailing)
-                                : LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .leading, endPoint: .trailing)
-                        )
-                        .cornerRadius(8)
+                        .padding(.bottom, 15)
+
+                        // Form fields
+                        Group {
+                            if category == "Private Business" {
+                                TextField("Business Name", text: $businessName)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding(.bottom, 10)
+                                TextField("Address", text: $address)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding(.bottom, 10)
+                            } else if category == "City Property" {
+                                TextField("Address", text: $address)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding(.bottom, 10)
+                                TextField("County", text: $county)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding(.bottom, 10)
+                            }
+
+                            TextField("Your Name", text: $fullName)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.bottom, 10)
+
+                            TextField("Email", text: $email)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .keyboardType(.emailAddress)
+                                .autocapitalization(.none)
+                                .padding(.bottom, 10)
+
+                            TextField("Description of Issue", text: $issueDescription)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .frame(height: 100)
+                                .padding(.bottom, 15)
+                        }
                         .padding(.horizontal)
-                }
-                .padding(.bottom, 15)
 
-                // Form fields
-                if category == "Private Business" {
-                    TextField("Business Name", text: $businessName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.bottom, 5)
-                    TextField("Address", text: $address)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.bottom, 5)
-                } else if category == "City Property" {
-                    TextField("Address", text: $address)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.bottom, 5)
-                    TextField("County", text: $county)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.bottom, 5)
-                }
+                        if let errorMessage = errorMessage {
+                            Text(errorMessage)
+                                .foregroundColor(.red)
+                                .padding(.horizontal)
+                                .padding(.bottom, 10)
+                        }
 
-                TextField("Your Name", text: $fullName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.bottom, 5)
+                        // Submit Button
+                        if isSubmitting {
+                            ProgressView("Submitting...")
+                                .padding()
+                        } else {
+                            Button(action: submitIssue) {
+                                HStack {
+                                    Image(systemName: "paperplane.fill")
+                                    Text("Submit Issue")
+                                }
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    isFormValid()
+                                        ? LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing)
+                                        : LinearGradient(gradient: Gradient(colors: [Color.gray, Color.gray.opacity(0.7)]), startPoint: .leading, endPoint: .trailing)
+                                )
+                                .cornerRadius(10)
+                                .shadow(radius: 2)
+                            }
+                            .disabled(!isFormValid())
+                            .padding(.horizontal)
+                            .padding(.bottom, 15)
+                        }
 
-                TextField("Email", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
-                    .padding(.bottom, 5)
-
-                TextField("Description of Issue", text: $issueDescription)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(height: 80)
-                    .padding(.bottom, 10)
-
-                if let errorMessage = errorMessage {
-                    Text(errorMessage)
-                        .foregroundColor(.red)
-                        .padding(.bottom, 10)
-                }
-
-                // Submit Button
-                if isSubmitting {
-                    ProgressView("Submitting...")
-                        .padding()
-                } else {
-                    Button(action: submitIssue) {
-                        Text("Submit Issue")
+                        // Close Button
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            HStack {
+                                Image(systemName: "xmark.circle")
+                                Text("Close")
+                            }
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(
-                                isFormValid()
-                                    ? LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .leading, endPoint: .trailing)
-                                    : LinearGradient(gradient: Gradient(colors: [.gray, .gray]), startPoint: .leading, endPoint: .trailing)
-                            )
-                            .cornerRadius(8)
-                            .shadow(radius: 5)
+                            .background(Color.red)
+                            .cornerRadius(10)
+                            .shadow(radius: 2)
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 20)
                     }
-                    .disabled(!isFormValid())
-                    .padding(.bottom, 10)
-                }
-
-                // Close Button
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Close")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red)
-                        .cornerRadius(8)
-                        .shadow(radius: 5)
                 }
             }
-            .padding()
-            .background(Color(UIColor.systemBackground))
-            .cornerRadius(20)
-            .shadow(radius: 10)
             .navigationBarBackButtonHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -139,8 +158,14 @@ struct IssuePopupView: View {
                     }
                 }
             }
-            .onTapGesture {
-                UIApplication.shared.endEditing()
+            .alert(isPresented: $showSuccessAlert) {
+                Alert(
+                    title: Text("Success"),
+                    message: Text("Your issue has been submitted successfully."),
+                    dismissButton: .default(Text("OK")) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                )
             }
         }
     }
@@ -154,12 +179,7 @@ struct IssuePopupView: View {
         isSubmitting = true
         errorMessage = nil
 
-        guard let userId = userSession.userId, !userId.isEmpty else {
-            errorMessage = "User is not logged in."
-            isSubmitting = false
-            return
-        }
-
+        // Create a new issue with the form data
         let newIssue = Issue(
             fullName: fullName,
             issueDescription: issueDescription,
@@ -170,10 +190,11 @@ struct IssuePopupView: View {
             email: email
         )
 
+        // User is logged in, use normal submission process
         firebaseService.addIssue(newIssue) { success in
             isSubmitting = false
             if success {
-                presentationMode.wrappedValue.dismiss()
+                showSuccessAlert = true
             } else {
                 errorMessage = "Failed to submit issue. Please try again."
             }

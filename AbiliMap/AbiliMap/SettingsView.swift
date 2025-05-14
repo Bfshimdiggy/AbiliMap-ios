@@ -4,6 +4,9 @@ struct SettingsView: View {
     @EnvironmentObject var userSession: UserSession
     @Environment(\.presentationMode) var presentationMode // To dismiss the view
     @State private var showPrivacyPolicy: Bool = false
+    @State private var showDeleteConfirmation: Bool = false
+    @State private var isDeleting: Bool = false
+    @State private var errorMessage: String? = nil
 
     var body: some View {
         VStack {
@@ -43,12 +46,63 @@ struct SettingsView: View {
                     .cornerRadius(8)
             }
             .padding()
+            
+            // Delete Account Button
+            Button(action: {
+                showDeleteConfirmation = true
+            }) {
+                Text("Delete Account")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.red.opacity(0.8))
+                    .cornerRadius(8)
+            }
+            .padding()
+            .alert(isPresented: $showDeleteConfirmation) {
+                Alert(
+                    title: Text("Delete Account"),
+                    message: Text("Are you sure you want to permanently delete your account? This action cannot be undone."),
+                    primaryButton: .destructive(Text("Delete")) {
+                        deleteAccount()
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
+            
+            if isDeleting {
+                ProgressView("Deleting account...")
+                    .padding()
+            }
+            
+            if let errorMessage = errorMessage {
+                Text(errorMessage)
+                    .foregroundColor(.red)
+                    .padding()
+            }
 
             Spacer()
         }
         .padding()
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func deleteAccount() {
+        isDeleting = true
+        errorMessage = nil
+        
+        userSession.deleteAccount { success, error in
+            isDeleting = false
+            
+            if success {
+                // Account deleted successfully, dismiss the settings view
+                presentationMode.wrappedValue.dismiss()
+            } else {
+                // Show error message
+                errorMessage = error ?? "Failed to delete account. Please try again."
+            }
+        }
     }
 }
 
@@ -66,7 +120,7 @@ struct PrivacyPolicyContentView: View {
 
                 Effective Date: January 5, 2025
 
-                Boonventures is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our [App Name] (the "App"). Please read this policy carefully to understand our views and practices regarding your personal data and how we will treat it.
+                Boon Ventures is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AbiliMap (the "App"). Please read this policy carefully to understand our views and practices regarding your personal data and how we will treat it.
 
                 1. Information We Collect
 

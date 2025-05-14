@@ -4,6 +4,11 @@ import FirebaseFirestore
 class FirebaseService: ObservableObject {
     private var db = Firestore.firestore()
 
+    // Getter method to expose the Firestore database instance
+    func getFirestoreDB() -> Firestore {
+        return db
+    }
+
     // Add a new issue to Firestore
     func addIssue(_ issue: Issue, completion: @escaping (Bool) -> Void) {
         guard let userId = UserSession.shared.userId else {
@@ -108,6 +113,27 @@ class FirebaseService: ObservableObject {
                     completion(true, nil)
                 }
             }
+        }
+    }
+
+    // Delete user account function
+    func deleteUserAccount(completion: @escaping (Bool, String?) -> Void) {
+        let user = Auth.auth().currentUser
+        
+        guard let user = user else {
+            completion(false, "No user is signed in")
+            return
+        }
+        
+        // Delete user from Firebase Authentication
+        user.delete { error in
+            if let error = error {
+                completion(false, error.localizedDescription)
+                return
+            }
+            
+            // Successfully deleted user account
+            completion(true, nil)
         }
     }
 }

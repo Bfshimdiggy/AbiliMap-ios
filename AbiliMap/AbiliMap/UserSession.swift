@@ -58,4 +58,24 @@ class UserSession: ObservableObject {
             self.isLoggedIn = false
         }
     }
+    
+    func deleteAccount(completion: @escaping (Bool, String?) -> Void) {
+        // Create an instance of FirebaseService
+        let firebaseService = FirebaseService()
+        
+        // Call the deleteUserAccount method from FirebaseService
+        firebaseService.deleteUserAccount { success, errorMessage in
+            if success {
+                // Clear local user data
+                self.userId = nil
+                self.userName = nil
+                self.isLoggedIn = false
+                UserDefaults.standard.removeObject(forKey: "userId")
+                UserDefaults.standard.removeObject(forKey: "userName")
+            }
+            
+            // Pass the result back to the caller
+            completion(success, errorMessage)
+        }
+    }
 }
