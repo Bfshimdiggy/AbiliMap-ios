@@ -1,16 +1,52 @@
-import Firebase
+import SwiftUI
 import FirebaseFirestore
+import FirebaseAuth
+import FirebaseStorage
 
 class FirebaseService: ObservableObject {
-    private var db = Firestore.firestore()
+    static let shared = FirebaseService()
+    private let db = Firestore.firestore()
+    private let storage = Storage.storage()
+    
+    public init() {}
 
     // Getter method to expose the Firestore database instance
     func getFirestoreDB() -> Firestore {
         return db
     }
 
+    // Upload photo to Firebase Storage
+    func uploadPhoto(_ imageData: Data, issueId: String, completion: @escaping (String?) -> Void) {
+        let storageRef = storage.reference()
+        let photoRef = storageRef.child("issues/\(issueId)/\(UUID().uuidString).jpg")
+        
+        // Upload the photo
+        photoRef.putData(imageData, metadata: nil) { metadata, error in
+            if let error = error {
+                print("Error uploading photo: \(error)")
+                completion(nil)
+                return
+            }
+            
+            // Get the download URL
+            photoRef.downloadURL { url, error in
+                if let error = error {
+                    print("Error getting download URL: \(error)")
+                    completion(nil)
+                    return
+                }
+                
+                if let downloadURL = url?.absoluteString {
+                    completion(downloadURL)
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+    }
+
     // Add a new issue to Firestore
-    func addIssue(_ issue: Issue, completion: @escaping (Bool) -> Void) {
+    func addIssue(_ issue: Issue, photoData: [Data]? = nil, completion: @escaping (Bool) -> Void) {
         guard let userId = UserSession.shared.userId else {
             completion(false)
             return
@@ -27,7 +63,32 @@ class FirebaseService: ObservableObject {
         newIssue.id = UUID().uuidString
         newIssue.fullName = fullName
 
-        db.collection("issues").document(newIssue.id).setData(newIssue.dictionary) { error in
+        // If there are photos to upload, handle them first
+        if let photos = photoData, !photos.isEmpty {
+            let group = DispatchGroup()
+            var uploadedURLs: [String] = []
+            
+            for photoData in photos {
+                group.enter()
+                uploadPhoto(photoData, issueId: newIssue.id) { url in
+                    if let url = url {
+                        uploadedURLs.append(url)
+                    }
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: .main) {
+                newIssue.photoURLs = uploadedURLs
+                self.saveIssueToFirestore(newIssue, completion: completion)
+            }
+        } else {
+            saveIssueToFirestore(newIssue, completion: completion)
+        }
+    }
+
+    private func saveIssueToFirestore(_ issue: Issue, completion: @escaping (Bool) -> Void) {
+        db.collection("issues").document(issue.id).setData(issue.dictionary) { error in
             if let error = error {
                 print("Error adding issue: \(error)")
                 completion(false)
@@ -86,7 +147,7 @@ class FirebaseService: ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
-            UserSession.shared.logOut()
+            UserSession.shared.logout()
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }

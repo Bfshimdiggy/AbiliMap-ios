@@ -1,81 +1,139 @@
-import Foundation
+import SwiftUI
 import FirebaseAuth
+import Combine
 
 class UserSession: ObservableObject {
     // The shared instance for UserSession
-    static let shared = UserSession()
+    static let shared = UserSession(firebaseService: FirebaseService.shared)
 
     @Published var userId: String?
     @Published var userName: String?
     @Published var isLoggedIn: Bool = false
-
-    private init() {
-        // Initialize with saved data if available
-        if let savedUserId = UserDefaults.standard.string(forKey: "userId") {
-            self.userId = savedUserId
-        }
-        if let savedUserName = UserDefaults.standard.string(forKey: "userName") {
-            self.userName = savedUserName
-        }
-        checkLoginStatus() // Ensure the login status is checked on initialization
-    }
-
-    func updateUserName(_ name: String) {
-        self.userName = name
-        UserDefaults.standard.set(name, forKey: "userName")
-    }
-
-    func logOut() {
-        // Remove user data from UserDefaults
-        self.userId = nil
-        self.userName = nil
-        self.isLoggedIn = false
-        UserDefaults.standard.removeObject(forKey: "userId")
-        UserDefaults.standard.removeObject(forKey: "userName")
-
-        // Log out from Firebase
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("Error signing out from Firebase: \(error.localizedDescription)")
-        }
-    }
-
-    func updateUserId(_ id: String) {
-        self.userId = id
-        UserDefaults.standard.set(id, forKey: "userId")
-    }
-
-    func checkLoginStatus() {
-        if let user = Auth.auth().currentUser {
-            self.userId = user.uid
-            self.userName = user.displayName ?? user.email
-            self.isLoggedIn = true
-            // Save user info to UserDefaults
-            UserDefaults.standard.set(user.uid, forKey: "userId")
-            UserDefaults.standard.set(user.displayName ?? user.email, forKey: "userName")
-        } else {
-            self.isLoggedIn = false
-        }
+    @Published var isLoading: Bool = false
+    @Published var error: String?
+    
+    private var cancellables = Set<AnyCancellable>()
+    private let firebaseService: FirebaseService
+    
+    init(firebaseService: FirebaseService) {
+        self.firebaseService = firebaseService
+        setupAuthStateListener()
     }
     
-    func deleteAccount(completion: @escaping (Bool, String?) -> Void) {
-        // Create an instance of FirebaseService
-        let firebaseService = FirebaseService()
-        
-        // Call the deleteUserAccount method from FirebaseService
-        firebaseService.deleteUserAccount { success, errorMessage in
-            if success {
-                // Clear local user data
+    private func setupAuthStateListener() {
+        Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            guard let self = self else { return }
+            
+            if let user = user {
+                self.userId = user.uid
+                self.userName = user.displayName
+                self.isLoggedIn = user.isEmailVerified
+                self.error = nil
+            } else {
                 self.userId = nil
                 self.userName = nil
                 self.isLoggedIn = false
-                UserDefaults.standard.removeObject(forKey: "userId")
-                UserDefaults.standard.removeObject(forKey: "userName")
             }
+        }
+    }
+    
+    func updateUserInfo(completion: @escaping (Bool, String?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No user is currently signed in")
+            return
+        }
+        
+        isLoading = true
+        error = nil
+        
+        let changeRequest = user.createProfileChangeRequest()
+        changeRequest.displayName = userName
+        
+        changeRequest.commitChanges { [weak self] error in
+            guard let self = self else { return }
             
-            // Pass the result back to the caller
-            completion(success, errorMessage)
+            self.isLoading = false
+            
+            if let error = error {
+                self.error = error.localizedDescription
+                completion(false, error.localizedDescription)
+            } else {
+                completion(true, nil)
+            }
+        }
+    }
+    
+    func logout() {
+        isLoading = true
+        error = nil
+        
+        do {
+            try Auth.auth().signOut()
+            userId = nil
+            userName = nil
+            isLoggedIn = false
+            isLoading = false
+        } catch {
+            self.error = error.localizedDescription
+            isLoading = false
+        }
+    }
+    
+    func checkLoginStatus() {
+        guard let user = Auth.auth().currentUser else {
+            isLoggedIn = false
+            return
+        }
+        
+        isLoggedIn = user.isEmailVerified
+    }
+    
+    func deleteAccount(completion: @escaping (Bool, String?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No user is currently signed in")
+            return
+        }
+        
+        isLoading = true
+        error = nil
+        
+        firebaseService.deleteUserAccount { [weak self] success, error in
+            guard let self = self else { return }
+            
+            self.isLoading = false
+            
+            if success {
+                self.userId = nil
+                self.userName = nil
+                self.isLoggedIn = false
+                completion(true, nil)
+            } else {
+                self.error = error
+                completion(false, error)
+            }
+        }
+    }
+    
+    func resendVerificationEmail(completion: @escaping (Bool, String?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false, "No user is currently signed in")
+            return
+        }
+        
+        isLoading = true
+        error = nil
+        
+        user.sendEmailVerification { [weak self] error in
+            guard let self = self else { return }
+            
+            self.isLoading = false
+            
+            if let error = error {
+                self.error = error.localizedDescription
+                completion(false, error.localizedDescription)
+            } else {
+                completion(true, nil)
+            }
         }
     }
 }

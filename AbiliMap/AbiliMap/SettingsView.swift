@@ -35,7 +35,7 @@ struct SettingsView: View {
 
             // Log Out Button
             Button(action: {
-                userSession.logOut()  // Log out functionality
+                userSession.logout()  // Log out functionality
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Log Out")

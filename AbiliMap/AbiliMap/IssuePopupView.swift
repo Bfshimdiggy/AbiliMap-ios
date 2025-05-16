@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 struct IssuePopupView: View {
     @Binding var showPopup: Bool
@@ -12,6 +13,8 @@ struct IssuePopupView: View {
     @State private var isSubmitting: Bool = false
     @State private var errorMessage: String?
     @State private var showSuccessAlert: Bool = false
+    @State private var selectedPhotos: [PhotosPickerItem] = []
+    @State private var selectedPhotoData: [Data] = []
     @EnvironmentObject var firebaseService: FirebaseService
     @EnvironmentObject var userSession: UserSession
     @Environment(\.presentationMode) var presentationMode
@@ -94,6 +97,55 @@ struct IssuePopupView: View {
                         }
                         .padding(.horizontal)
 
+                        // Photo Selection
+                        VStack(alignment: .leading) {
+                            Text("Add Photos")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            
+                            PhotosPicker(selection: $selectedPhotos,
+                                       maxSelectionCount: 5,
+                                       matching: .images) {
+                                HStack {
+                                    Image(systemName: "photo.on.rectangle.angled")
+                                    Text("Select Photos")
+                                }
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.blue, Color.purple]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .cornerRadius(10)
+                                .shadow(radius: 2)
+                            }
+                            .padding(.horizontal)
+                            
+                            // Photo Preview Grid
+                            if !selectedPhotoData.isEmpty {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing: 10) {
+                                        ForEach(selectedPhotoData, id: \.self) { photoData in
+                                            if let uiImage = UIImage(data: photoData) {
+                                                Image(uiImage: uiImage)
+                                                    .resizable()
+                                                    .scaledToFill()
+                                                    .frame(width: 100, height: 100)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            }
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
+                                .frame(height: 120)
+                            }
+                        }
+                        .padding(.bottom, 15)
+
                         if let errorMessage = errorMessage {
                             Text(errorMessage)
                                 .foregroundColor(.red)
@@ -167,6 +219,16 @@ struct IssuePopupView: View {
                     }
                 )
             }
+            .onChange(of: selectedPhotos) { newItems in
+                Task {
+                    selectedPhotoData = []
+                    for item in newItems {
+                        if let data = try? await item.loadTransferable(type: Data.self) {
+                            selectedPhotoData.append(data)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -190,8 +252,8 @@ struct IssuePopupView: View {
             email: email
         )
 
-        // User is logged in, use normal submission process
-        firebaseService.addIssue(newIssue) { success in
+        // Submit the issue with photos
+        firebaseService.addIssue(newIssue, photoData: selectedPhotoData.isEmpty ? nil : selectedPhotoData) { success in
             isSubmitting = false
             if success {
                 showSuccessAlert = true

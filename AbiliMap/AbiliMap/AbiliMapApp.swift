@@ -4,7 +4,7 @@ import Firebase
 @main
 struct AbiliMapApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject private var firebaseService = FirebaseService() // Create instance of FirebaseService
+    @StateObject private var firebaseService = FirebaseService.shared // Use shared instance of FirebaseService
     @StateObject private var userSession = UserSession.shared // Use shared instance of UserSession
     @StateObject private var firebaseAuthListener = FirebaseAuthListener() // Listen to Firebase Auth state changes
 

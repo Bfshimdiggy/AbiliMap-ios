@@ -9,6 +9,7 @@ struct Issue: Identifiable, Codable {
     var address: String
     var county: String?
     var email: String?
+    var photoURLs: [String]? // Array of photo URLs
 
     // Default initializer for creating an Issue object
     init(id: String = UUID().uuidString,
@@ -18,7 +19,8 @@ struct Issue: Identifiable, Codable {
          businessName: String? = nil,
          address: String,
          county: String? = nil,
-         email: String? = nil) {
+         email: String? = nil,
+         photoURLs: [String]? = nil) {
         self.id = id
         self.fullName = fullName
         self.issueDescription = issueDescription
@@ -27,6 +29,7 @@ struct Issue: Identifiable, Codable {
         self.address = address
         self.county = county
         self.email = email
+        self.photoURLs = photoURLs
     }
 
     // Add a failable initializer to handle Firebase data parsing
@@ -47,6 +50,7 @@ struct Issue: Identifiable, Codable {
         self.address = address
         self.county = data["county"] as? String
         self.email = data["email"] as? String
+        self.photoURLs = data["photoURLs"] as? [String]
     }
 
     // A dictionary representation of the Issue, for Firebase
@@ -59,7 +63,8 @@ struct Issue: Identifiable, Codable {
             "businessName": businessName ?? "",
             "address": address,
             "county": county ?? "",
-            "email": email ?? ""
+            "email": email ?? "",
+            "photoURLs": photoURLs ?? []
         ]
     }
 }

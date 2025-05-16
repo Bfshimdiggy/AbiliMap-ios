@@ -37,10 +37,31 @@ struct UserIssuesView: View {
                         Text("Address: \(issue.address)")
                             .foregroundColor(.primary)
 
-                        // Display Issue Description (updated font/color)
+                        // Display Issue Description
                         Text("Description: \(issue.issueDescription)")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
+
+                        // Display Photos if available
+                        if let photoURLs = issue.photoURLs, !photoURLs.isEmpty {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 10) {
+                                    ForEach(photoURLs, id: \.self) { url in
+                                        AsyncImage(url: URL(string: url)) { image in
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 100, height: 100)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        } placeholder: {
+                                            ProgressView()
+                                                .frame(width: 100, height: 100)
+                                        }
+                                    }
+                                }
+                            }
+                            .frame(height: 120)
+                        }
                     }
                     .padding(.vertical, 5)
                 }

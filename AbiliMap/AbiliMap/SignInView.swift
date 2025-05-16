@@ -3,6 +3,8 @@ import FirebaseAuth
 
 struct SignInView: View {
     @EnvironmentObject var userSession: UserSession
+    @EnvironmentObject var firebaseService: FirebaseService
+    @Environment(\.presentationMode) var presentationMode
     @State private var email = ""
     @State private var password = ""
     @State private var errorMessage = ""
@@ -23,10 +25,12 @@ struct SignInView: View {
                 .keyboardType(.emailAddress)
                 .autocapitalization(.none)
                 .padding()
+                .disabled(isLoading)
 
             SecureField("Password", text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+                .disabled(isLoading)
 
             if !errorMessage.isEmpty {
                 Text(errorMessage)
@@ -37,16 +41,18 @@ struct SignInView: View {
             Button(action: signIn) {
                 if isLoading {
                     ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
                         .padding()
                 } else {
                     Text("Sign In")
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(isFormValid() ? Color.blue : Color.gray)
                         .cornerRadius(8)
                 }
             }
+            .disabled(!isFormValid() || isLoading)
             .padding()
 
             Button(action: { showForgotPassword.toggle() }) {
@@ -54,6 +60,7 @@ struct SignInView: View {
                     .underline()
                     .foregroundColor(.blue)
             }
+            .disabled(isLoading)
             .padding()
 
             Spacer()
@@ -65,7 +72,7 @@ struct SignInView: View {
     }
 
     private func signIn() {
-        guard !email.isEmpty, !password.isEmpty else {
+        guard isFormValid() else {
             errorMessage = "Please enter both email and password."
             return
         }
@@ -73,24 +80,20 @@ struct SignInView: View {
         isLoading = true
         errorMessage = ""
 
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        firebaseService.signIn(email: email, password: password) { success, error in
             isLoading = false
-
-            if let error = error {
-                errorMessage = "Error signing in: \(error.localizedDescription)"
-                return
+            
+            if success {
+                userSession.checkLoginStatus()
+                presentationMode.wrappedValue.dismiss()
+            } else {
+                errorMessage = error ?? "Failed to sign in. Please try again."
             }
-
-            guard let user = authResult?.user else {
-                errorMessage = "Unable to sign in. Please try again."
-                return
-            }
-
-            // Update the user session
-            userSession.updateUserId(user.uid)
-            userSession.updateUserName(user.displayName ?? user.email ?? "User")
-            userSession.isLoggedIn = true
         }
+    }
+
+    private func isFormValid() -> Bool {
+        !email.isEmpty && !password.isEmpty
     }
 }
 
@@ -98,6 +101,7 @@ struct ForgotPasswordView: View {
     @Binding var resetEmail: String
     @Binding var resetMessage: String
     @Environment(\.presentationMode) var presentationMode
+    @State private var isLoading = false
 
     var body: some View {
         VStack {
@@ -110,6 +114,7 @@ struct ForgotPasswordView: View {
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
                 .padding()
+                .disabled(isLoading)
 
             if !resetMessage.isEmpty {
                 Text(resetMessage)
@@ -118,36 +123,54 @@ struct ForgotPasswordView: View {
             }
 
             Button(action: sendResetEmail) {
-                Text("Send Reset Email")
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(8)
+                if isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .padding()
+                } else {
+                    Text("Send Reset Email")
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(isFormValid() ? Color.blue : Color.gray)
+                        .cornerRadius(8)
+                }
             }
+            .disabled(!isFormValid() || isLoading)
             .padding()
 
             Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 Text("Cancel")
                     .foregroundColor(.red)
             }
+            .disabled(isLoading)
             .padding()
         }
         .padding()
     }
 
     private func sendResetEmail() {
-        guard !resetEmail.isEmpty else {
+        guard isFormValid() else {
             resetMessage = "Please enter a valid email address."
             return
         }
 
+        isLoading = true
+        resetMessage = ""
+
         Auth.auth().sendPasswordReset(withEmail: resetEmail) { error in
+            isLoading = false
             if let error = error {
                 resetMessage = "Error: \(error.localizedDescription)"
             } else {
                 resetMessage = "Password reset email sent to \(resetEmail)."
+                // Clear the email field after successful send
+                resetEmail = ""
             }
         }
+    }
+
+    private func isFormValid() -> Bool {
+        !resetEmail.isEmpty
     }
 }
